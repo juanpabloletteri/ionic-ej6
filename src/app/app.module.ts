@@ -6,9 +6,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
 import { AplicacionPage } from '../pages/aplicacion/aplicacion';
+import { Album1Page } from '../pages/album1/album1';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -29,7 +32,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     AboutPage,
-    AplicacionPage
+    AplicacionPage,
+    Album1Page
   ],
   imports: [
     BrowserModule,
@@ -41,12 +45,14 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     AboutPage,
-    AplicacionPage
+    AplicacionPage,
+    Album1Page
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
+    DeviceMotion,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
