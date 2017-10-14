@@ -10,9 +10,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class HomePage {
 
-  usuario: string = "";
+  usuario: string = "admin";
   email: string = "";
-  pass: string;
+  pass: string="11";
 
   pass1: string = "";
   pass2: string = "";
