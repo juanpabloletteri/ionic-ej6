@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ToastController } from 'ionic-angular';
 import { DeviceMotion } from '@ionic-native/device-motion';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { Vibration } from '@ionic-native/vibration';
 /**
  * Generated class for the Album1Page page.
  *
@@ -24,7 +25,8 @@ export class Album1Page {
 
   tema: number = 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion, private nativeAudio: NativeAudio) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion,
+    private nativeAudio: NativeAudio, private vibration: Vibration, public toastCtrl: ToastController) {
     this.nativeAudio.preloadSimple('01', 'assets/audio/sonido.wav');
 
     platform.ready().then(() => {
@@ -56,6 +58,20 @@ export class Album1Page {
             if (this.tema == 4) {
               this.tema = 1;
               this.nativeAudio.play('01');
+              this.vibration.vibrate(1000);
+              ///////////TOAST////////
+              const toast = this.toastCtrl.create({
+                message: 'Llego a la primer fotografia',
+                duration: 3000,
+                position: 'top'
+              });
+
+              toast.onDidDismiss(() => {
+                console.log('Dismissed toast');
+              });
+
+              toast.present();
+              ////////////////////////
               //return;
             }
             else {
@@ -70,6 +86,7 @@ export class Album1Page {
             if (this.tema == 1) {
               this.tema = 4;
               this.nativeAudio.play('01');
+              this.vibration.vibrate(1000);
               //return;
             }
             else {

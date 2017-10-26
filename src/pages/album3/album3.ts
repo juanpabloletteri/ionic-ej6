@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ToastController } from 'ionic-angular';
 import { DeviceMotion } from '@ionic-native/device-motion';
-
+import { NativeAudio } from '@ionic-native/native-audio';
+import { Vibration } from '@ionic-native/vibration';
 /**
  * Generated class for the Album3Page page.
  *
@@ -24,7 +25,10 @@ export class Album3Page {
 
   tema: number = 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion,
+    private nativeAudio: NativeAudio, private vibration: Vibration, public toastCtrl: ToastController) {
+    this.nativeAudio.preloadSimple('01', 'assets/audio/sonido.wav');
+
     platform.ready().then(() => {
       var subscription = DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
         //console.log(acc);
@@ -53,10 +57,26 @@ export class Album3Page {
             //alert("negativo");
             if (this.tema == 4) {
               this.tema = 1;
-              return;
+              this.nativeAudio.play('01');
+              this.vibration.vibrate(1000);
+              ///////////TOAST////////
+              const toast = this.toastCtrl.create({
+                message: 'Llego a la primer fotografia',
+                duration: 3000,
+                position: 'top'
+              });
+
+              toast.onDidDismiss(() => {
+                console.log('Dismissed toast');
+              });
+
+              toast.present();
+              ////////////////////////
+              //return;
             }
             else {
               this.tema++;
+              this.nativeAudio.play('01');
               //return;
             }
           }
@@ -65,10 +85,13 @@ export class Album3Page {
             //  alert("positivo") 
             if (this.tema == 1) {
               this.tema = 4;
-              return;
+              this.nativeAudio.play('01');
+              this.vibration.vibrate(1000);
+              //return;
             }
             else {
               this.tema--;
+              this.nativeAudio.play('01');
               //return;
             }
 

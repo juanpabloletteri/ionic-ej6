@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { NativeAudio } from '@ionic-native/native-audio';
+import { Vibration } from '@ionic-native/vibration';
 
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
 
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     AngularFireDatabase,
     DeviceMotion,
     NativeAudio,
+    Vibration,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
