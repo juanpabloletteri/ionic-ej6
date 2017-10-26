@@ -48,12 +48,30 @@ export class Album2Page {
         }
 
         if (this.moveCounter > 2) {
-          //alert('SHAKE');
-          if (this.tema == 4) {
-            this.tema = 1;
+          //movimiento hacia la derecha
+          if (acc.x < 0) {
+            //alert("negativo");
+            if (this.tema == 4) {
+              this.tema = 1;
+              return;
+            }
+            else {
+              this.tema++;
+              //return;
+            }
           }
+          //movimiento hacia la izquierda
           else {
-            this.tema++;
+            //  alert("positivo") 
+            if (this.tema == 1) {
+              this.tema = 4;
+              return;
+            }
+            else {
+              this.tema--;
+              //return;
+            }
+
           }
 
           this.moveCounter = 0;

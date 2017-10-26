@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { DeviceMotion } from '@ionic-native/device-motion';
 
 /**
- * Generated class for the Album1Page page.
+ * Generated class for the Album3Page page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
@@ -11,10 +11,10 @@ import { DeviceMotion } from '@ionic-native/device-motion';
 
 @IonicPage()
 @Component({
-  selector: 'page-album1',
-  templateUrl: 'album1.html',
+  selector: 'page-album3',
+  templateUrl: 'album3.html',
 })
-export class Album1Page {
+export class Album3Page {
 
   public cats: Array<Object>;
   private lastX: number;

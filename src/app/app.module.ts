@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { AplicacionPage } from '../pages/aplicacion/aplicacion';
 import { Album1Page } from '../pages/album1/album1';
 import { Album2Page } from '../pages/album2/album2';
+import { Album3Page } from '../pages/album3/album3';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     AboutPage,
     AplicacionPage,
     Album1Page,
-    Album2Page
+    Album2Page,
+    Album3Page
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ export const firebaseConfig = {
     AboutPage,
     AplicacionPage,
     Album1Page,
-    Album2Page
+    Album2Page,
+    Album3Page
   ],
   providers: [
     StatusBar,
