@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { DeviceMotion } from '@ionic-native/device-motion';
-
+import { NativeAudio } from '@ionic-native/native-audio';
 /**
  * Generated class for the Album1Page page.
  *
@@ -24,7 +24,9 @@ export class Album1Page {
 
   tema: number = 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion, private nativeAudio: NativeAudio) {
+    this.nativeAudio.preloadSimple('01', 'assets/audio/sonido.wav');
+
     platform.ready().then(() => {
       var subscription = DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
         //console.log(acc);
@@ -53,10 +55,12 @@ export class Album1Page {
             //alert("negativo");
             if (this.tema == 4) {
               this.tema = 1;
-              return;
+              this.nativeAudio.play('01');
+              //return;
             }
             else {
               this.tema++;
+              this.nativeAudio.play('01');
               //return;
             }
           }
@@ -65,10 +69,12 @@ export class Album1Page {
             //  alert("positivo") 
             if (this.tema == 1) {
               this.tema = 4;
-              return;
+              this.nativeAudio.play('01');
+              //return;
             }
             else {
               this.tema--;
+              this.nativeAudio.play('01');
               //return;
             }
 

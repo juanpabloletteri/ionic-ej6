@@ -13,6 +13,8 @@ import { Album3Page } from '../pages/album3/album3';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { NativeAudio } from '@ionic-native/native-audio';
+
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
 
 // Import the AF2 Module
@@ -59,6 +61,7 @@ export const firebaseConfig = {
     SplashScreen,
     AngularFireDatabase,
     DeviceMotion,
+    NativeAudio,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
