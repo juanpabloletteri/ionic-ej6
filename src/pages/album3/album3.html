@@ -1,9 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title> Album Mascotas</ion-title>
-  </ion-navbar>
+  <h1>Mascotas!</h1>
 </ion-header>
-
 
 <ion-content padding *ngIf="tema==1" class="foto1">
 </ion-content>
@@ -16,3 +13,7 @@
 
 <ion-content padding *ngIf="tema==4" class="foto4">
 </ion-content>
+
+<ion-fab right bottom>
+  <button ion-fab color="danger" (click)="salir()">Salir</button>
+</ion-fab>

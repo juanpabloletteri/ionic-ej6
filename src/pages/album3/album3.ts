@@ -109,7 +109,9 @@ export class Album3Page {
 
 
   }
-
+  salir() {
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Album1Page');
   }
