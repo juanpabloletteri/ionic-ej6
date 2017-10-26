@@ -1,18 +1,18 @@
-<!--
-  Generated template for the Album1Page page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Album Vacaciones</ion-title>
+    <ion-title> Album Vacaciones</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="tema==1" class="foto1">
+</ion-content>
 
+<ion-content padding *ngIf="tema==2" class="foto2">
+</ion-content>
+
+<ion-content padding *ngIf="tema==3" class="foto3">
+</ion-content>
+
+<ion-content padding *ngIf="tema==4" class="foto3">
 </ion-content>
