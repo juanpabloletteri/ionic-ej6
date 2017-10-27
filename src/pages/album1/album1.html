@@ -2,16 +2,46 @@
   <h1>Vacaciones!</h1>
 </ion-header>
 
-<ion-content padding *ngIf="tema==1" class="foto1">
+<ion-content *ngIf="album==1" >
+  <ion-content padding *ngIf="tema==1" class="vac1">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==2" class="vac2">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==3" class="vac3">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==4" class="vac4">
+  </ion-content>
 </ion-content>
 
-<ion-content padding *ngIf="tema==2" class="foto2">
+<ion-content *ngIf="album==2" >
+  <ion-content padding *ngIf="tema==1" class="aut1">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==2" class="aut2">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==3" class="aut3">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==4" class="aut4">
+  </ion-content>
 </ion-content>
 
-<ion-content padding *ngIf="tema==3" class="foto3">
-</ion-content>
+<ion-content *ngIf="album==3" >
+  <ion-content padding *ngIf="tema==1" class="mas1">
+  </ion-content>
 
-<ion-content padding *ngIf="tema==4" class="foto4">
+  <ion-content padding *ngIf="tema==2" class="mas2">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==3" class="mas3">
+  </ion-content>
+
+  <ion-content padding *ngIf="tema==4" class="mas4">
+  </ion-content>
 </ion-content>
 
 <ion-fab right bottom>

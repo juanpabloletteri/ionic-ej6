@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
-import { DeviceMotion } from '@ionic-native/device-motion';
 import { Album1Page } from '../album1/album1';
-import { Album2Page } from '../album2/album2';
-import { Album3Page } from '../album3/album3';
 /**
  * Generated class for the AplicacionPage page.
  *
@@ -24,7 +21,7 @@ export class AplicacionPage {
   private lastZ: number;
   private moveCounter: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public loadingCtrl: LoadingController) {
     let loader = this.loadingCtrl.create({
       content: "Cargando...",
       duration: 2000
@@ -34,11 +31,11 @@ export class AplicacionPage {
 
   album(num) {
     if (num == 1)
-      this.navCtrl.push(Album1Page);
+      this.navCtrl.push(Album1Page, { "album": 1 });
     else if (num == 2)
-      this.navCtrl.push(Album2Page);
+      this.navCtrl.push(Album1Page, { "album": 2 });
     else
-    this.navCtrl.push(Album3Page);
+      this.navCtrl.push(Album1Page, { "album": 3 });
   }
 
   ionViewDidLoad() {

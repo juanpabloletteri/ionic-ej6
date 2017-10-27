@@ -22,15 +22,17 @@ export class Album1Page {
   private lastY: number;
   private lastZ: number;
   private moveCounter: number = 0;
+  private subscription: any;
+  private tema: number = 1;
+  private album: number = 1;
 
-  tema: number = 1;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, private DeviceMotion: DeviceMotion,
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platform1: Platform, private DeviceMotion: DeviceMotion,
     private nativeAudio: NativeAudio, private vibration: Vibration, public toastCtrl: ToastController) {
     this.nativeAudio.preloadSimple('01', 'assets/audio/sonido.wav');
+    this.album = this.navParams.get('album');
 
-    platform.ready().then(() => {
-      var subscription = DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
+    platform1.ready().then(() => {
+      this.subscription = DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
         //console.log(acc);
 
         if (!this.lastX) {
@@ -65,38 +67,29 @@ export class Album1Page {
                 duration: 3000,
                 position: 'top'
               });
-
               toast.onDidDismiss(() => {
                 console.log('Dismissed toast');
               });
-
               toast.present();
               ////////////////////////
-              //return;
             }
             else {
               this.tema++;
               this.nativeAudio.play('01');
-              //return;
             }
           }
           //movimiento hacia la izquierda
           else {
-            //  alert("positivo") 
             if (this.tema == 1) {
               this.tema = 4;
               this.nativeAudio.play('01');
               this.vibration.vibrate(1000);
-              //return;
             }
             else {
               this.tema--;
               this.nativeAudio.play('01');
-              //return;
             }
-
           }
-
           this.moveCounter = 0;
         }
 
@@ -107,10 +100,11 @@ export class Album1Page {
       });
     });
 
-
   }
   salir() {
+    this.subscription.unsubscribe();
     this.navCtrl.pop();
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Album1Page');
